@@ -1,0 +1,25 @@
+DB_PORT=3306
+DB_HOST=localhost
+DB_PASS=""
+MYSQL_DB_USER=visiontrek
+DB_USER=root
+
+DB_PORT_REMOTELY=3306
+DB_HOST_REMOTELY=5.189.166.187
+DB_PASS_REMOTELY=gloadmin123
+MYSQL_DB_REMOTELY=promotion
+DB_USER_REMOTELY=root
+
+
+conversion = SELECT partner,COUNT(1) FROM tbl_partner_callback where month(date) =2 and clientName='ndoto' group by 1;
+publisherQuery = select partnerid,count(1) from publishertraffic where month(date) =2 and clientName='ndoto' group by 1;
+insertUserQuery = INSERT INTO users (companyName,email,password,photo_path) VALUES (?)
+validUserQuery = SELECT * FROM users WHERE `email` = ?
+generatePublisherQuery = INSERT INTO publishers (publisherName,postbackUrl) VALUES (?)
+publishersQuery = SELECT * FROM `publishers`
+generateServiceQuery = INSERT INTO services (serviceName,serviceUrl,serviceStatus) VALUES (?)
+deleteServiceQuery = DELETE FROM services WHERE userId = ?;
+updateServiceQuery = UPDATE services SET serviceStatus = ? WHERE userId = ?;
+updatePublisherQuery = UPDATE publishers SET publisherStatus = ? WHERE publisherId = ?;
+servicesQuery = SELECT * FROM `services` 
+
